@@ -1,0 +1,198 @@
+
+@import './neat.scss'; // 现代化的css默认样式重置
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+@import './animate.scss';
+
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+label {
+  font-weight: 700;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app{
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: none;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+}
+
+div:focus{
+  outline: none;
+ }
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+// 一些全局样式放在这里
+.common-pagination {
+  margin: 32px;
+  text-align: right;
+}
+// 扩大点击区域
+.extend-x {
+  position: relative;
+  &::after {
+    cursor: pointer;
+    content: '';
+    position: absolute;
+    left: -18px;
+    right: -18px;
+    top: 0;
+    bottom: 0;
+  }
+}
+.extend-xy {
+  position: relative;
+  &::after {
+    cursor: pointer;
+    content: '';
+    position: absolute;
+    left: -18px;
+    right: -18px;
+    top: -10px;
+    bottom:-10px;
+  }
+}
+// 表格内的跳转通用样式
+.staff-jump-tip {
+  cursor: pointer; 
+  color: #0bb27a; 
+  font-weight: 600;
+  :hover {
+    color: rgb(60, 193, 149);
+  }
+}
+.app-main{
+  min-height: 100%;
+  padding: 20px;
+  padding-top: 90px;
+  // 编辑页form通用样式
+  .save-content {
+    // 覆盖element的表单样式
+    .el-form {
+      padding: 32px 16px;
+      border: 2px dashed #e1e6eb;
+      background: #f8f8f9;
+    }
+    .el-form-item {
+      width: 50%;
+      margin-bottom: 32px;
+      display: inline-block;
+      vertical-align: top;
+      .el-form-item__label {
+        font-size: 12px;
+        padding-right: 20px;
+        color: #495060;
+      }
+      .el-form-item__content {
+        width: 300px;
+        font-size: 12px;
+      }
+    } 
+    .el-form-item:nth-last-of-type(1) {
+      margin-bottom: 0
+    }
+    .el-cascader, .el-select, .el-input {
+      width: 100%;
+    }
+    // 时间范围
+    .el-range-editor.el-input__inner {
+      width: 100%;
+    }
+    .el-date-editor .el-range-separator {
+      width: 8%;
+    }
+  }
+  // 编辑页通用
+  .common-save-container {
+    background-color: #fff;
+    position: relative;
+    padding: 20px 0;
+    header {
+      position: relative;
+      padding-bottom: 20px;
+      margin: 4px 0 32px;
+      border-bottom: 1px solid #c9c9c9;
+      h2 {
+        text-align: center;
+      }
+      i {
+        position: absolute;
+        right: 10px;
+        top: 10%;
+        // transform: translateY(-50%);
+        font-size: 24px;
+        cursor: pointer;
+        transition: .3s;
+        transform: rotate(0deg);
+        color: #c1c1c1;
+      }
+      i:hover {
+        transform: rotate(360deg);
+      }
+    }
+  }
+  .save-content {
+    background-color: #fff;
+    width: 1000px;
+    margin: 0 auto;
+    footer {
+      text-align: center;
+      padding: 24px 0;
+      button {
+        padding: 12px 40px;
+      }
+    }
+  }
+}
+

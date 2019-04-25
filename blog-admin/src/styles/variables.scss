@@ -1,0 +1,20 @@
+// 通用颜色变量
+$white: #FFF; // 白色
+$deepWhite: #F6F7FB; // 深白色
+$purple: #44519E; // 紫色
+$green: #46C45F; // 绿色
+$red: #FC5661; // 红色
+$blue: #007BFF; // 蓝色
+$black: #282f3A; // 黑色
+$deepBlack: #1C1E2B; // 深黑色
+$lightBlack: #6C757D; // 浅黑色
+$gray: #AAB2BD; // 灰色
+$lightGray: #8C9296; // 浅灰色
+
+// 业务颜色
+$menuBg: $deepBlack; // 菜单背景
+$menuHover: rgba(255,255,255,.1); // 菜单活动背景
+$menuText: $white; // 菜单文字颜色
+
+$navbarBg: $white; // 导航栏背景色
+$navbarText: $lightGray; // 导航栏文字颜色
