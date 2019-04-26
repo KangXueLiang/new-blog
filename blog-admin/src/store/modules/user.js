@@ -1,5 +1,5 @@
-import { login, logout, getInfo } from '@/api/login'
-import { getToken, setToken, removeToken, setUserInfo, removeUserInfo } from '@/utils/auth'
+import { login, logout } from '@/api/login'
+import { getToken, setToken, removeToken, removeUserInfo } from '@/utils/auth'
 
 const user = {
   state: {
@@ -24,6 +24,7 @@ const user = {
       state.roles = roles
     },
     SET_USERINFO: (state, userInfo) => {
+      console.log('set-userinfo', userInfo)
       state.userInfo = userInfo
     }
   },
@@ -34,25 +35,12 @@ const user = {
       return new Promise((resolve, reject) => {
         login(loginInfo).then(response => {
           const data = response.data
+          console.log('这里看一下登录信息', data)
           setToken(data.token)
           commit('SET_TOKEN', data.token)
+          // commit('SET_USERINFO', data.userInfo)
+          // commit('SET_NAME', data.userInfo.name)
           resolve()
-        }).catch(error => {
-          reject(error)
-        })
-      })
-    },
-
-    // 获取用户信息
-    GetInfo({ commit }) {
-      return new Promise((resolve, reject) => {
-        getInfo().then(response => {
-          const data = response.data
-          setUserInfo(data)
-          console.log('userinfo', data)
-          commit('SET_NAME', data.name)
-          commit('SET_USERINFO', data)
-          resolve(response)
         }).catch(error => {
           reject(error)
         })

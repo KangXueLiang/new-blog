@@ -155,7 +155,7 @@
       submit() {
         this.loading = true
         return new Promise((resolve, reject) => {
-          this.$http.post('api/user/resetPwd', {
+          this.$http.post('api/resetPwd', {
             password: this.newPassword1,
             confirm_password: this.newPassword2
             // id: this.userInfo.id

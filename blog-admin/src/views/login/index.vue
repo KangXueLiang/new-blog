@@ -77,8 +77,12 @@ export default {
       }
     },
     handleLogin() {
+      console.log('begin login')
       this.loading = true
-      this.$store.dispatch('Login', this.loginForm).then(() => {
+      let _data = {}
+      _data.email = this.loginForm.account
+      _data.password = this.loginForm.password
+      this.$store.dispatch('Login', _data).then(() => {
         this.loading = false
         this.$router.push({ path: this.redirect || '/' })
       }).catch(() => {

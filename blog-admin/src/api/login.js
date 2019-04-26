@@ -1,20 +1,10 @@
 import http from '@/utils/request'
 
 export function login(params) {
-  return http.post('user/login', {
-    account: params.account,
-    password: params.password,
-    sys_code: 'tt_staff',
-    extra: {
-      appid: params.extra.appid,
-      device: params.extra.device,
-      logintype: params.extra.logintype
-    }
+  return http.post('api/login', {
+    email: params.email,
+    password: params.password
   })
-}
-
-export function getInfo() {
-  return http.get(`api/user/getCurrentUser`)
 }
 
 export function logout() {

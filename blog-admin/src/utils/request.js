@@ -8,7 +8,8 @@ import { handleResponseError } from './responseError'
 console.log(process.env)
 // 创建axios实例
 const service = axios.create({
-  baseURL: process.env.VUE_APP_BASE_API, // api 的 base_url
+  // baseURL: process.env.VUE_APP_BASE_API, // api 的 base_url
+  baseUrl: '',
   timeout: 30000 // 请求超时时间
 })
 
@@ -17,7 +18,7 @@ service.interceptors.request.use(
   config => {
     config.headers['Content-Type'] = 'application/json'
     if (getToken()) {
-      config.headers['token'] = getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
+      config.headers['x-access-token'] = getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
     }
     return config
   },
@@ -62,6 +63,7 @@ const http = {}
 const BASE_URL = process.env.VUE_APP_BASE_API
 // patch 请求
 http.patch = (url = '/', data = {}, headers = {}) => {
+  console.log('baseurl', BASE_URL, 'url:', url)
   return service({
     url: `${BASE_URL}${url}`,
     method: 'patch',
@@ -89,6 +91,7 @@ http.delete = (url = '/', data = {}, headers = {}) => {
 }
 // post请求
 http.post = (url = '/', data = {}, headers = {}) => {
+  console.log('base+url', `${BASE_URL}${url}`)
   return service({
     url: `${BASE_URL}${url}`,
     method: 'post',

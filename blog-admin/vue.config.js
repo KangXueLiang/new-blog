@@ -24,10 +24,10 @@ module.exports = {
   assetsDir: 'static',
   productionSourceMap: SourceMapStatus,
   devServer: {
-    open: true, // 自动打开浏览器
-    host: '0.0.0.0', // 代理地址
-    port: 3005, // 代理端口
-    https: false // 是否开启https
+    open: true // 自动打开浏览器
+    // host: '0.0.0.0', // 代理地址
+    // port: 3005, // 代理端口
+    // https: false // 是否开启https
     // proxy: {
     //   // 凡是 `/api` 开头的 http/https 请求，都会被代理到 x.x.x.x:port 上
     //   '/api': {
