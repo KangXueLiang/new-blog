@@ -18,7 +18,7 @@ service.interceptors.request.use(
   config => {
     config.headers['Content-Type'] = 'application/json'
     if (getToken()) {
-      config.headers['x-access-token'] = getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
+      config.headers['Authorization'] = 'Bearer ' + getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
     }
     return config
   },
@@ -47,6 +47,7 @@ service.interceptors.response.use(
   },
   error => {
     // handleResponseError(error)
+    console.log('看一下报错', error)
     console.log('err' + error.response.status) // for debug
     if (error.response.status == 504 || error.response.status == 404) {
       Message.error({message: '服务器被吃了⊙﹏⊙∥'});

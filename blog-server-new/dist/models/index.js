@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Article = exports.User = exports.GlobalStatus = exports.UserInfo = exports.About = exports.ProgramExperience = exports.WorkExperience = exports.Player = exports.YanceyMusic = exports.FeaturedRecord = exports.LiveTour = exports.Project = exports.Motto = exports.Cover = exports.Announcement = undefined;
+exports.Category = exports.Article = exports.User = exports.GlobalStatus = exports.UserInfo = exports.About = exports.ProgramExperience = exports.WorkExperience = exports.Player = exports.YanceyMusic = exports.FeaturedRecord = exports.LiveTour = exports.Project = exports.Motto = exports.Cover = exports.Announcement = undefined;
 
 var _announcement = require('./announcement');
 
@@ -65,6 +65,10 @@ var _article = require('./article');
 
 var _article2 = _interopRequireDefault(_article);
 
+var _category = require('./category');
+
+var _category2 = _interopRequireDefault(_category);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.Announcement = _announcement2.default;
@@ -82,3 +86,4 @@ exports.UserInfo = _userInfo2.default;
 exports.GlobalStatus = _globalStatus2.default;
 exports.User = _user2.default;
 exports.Article = _article2.default;
+exports.Category = _category2.default;

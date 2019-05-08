@@ -113,20 +113,6 @@ export const constantRouterMap = [
     }]
   },
   {
-    path: '/tagManagement',
-    component: Layout,
-    redirect: '/tagManagement/index',
-    name: '标签管理',
-    alwaysShow: true,
-    meta: { title: '标签管理', icon: 'iconfont iconicon_10' },
-    children: [{
-      path: 'index',
-      name: '标签列表',
-      meta: { title: '标签列表', icon: 'iconfont iconicon_21' },
-      component: loadComponent('views/tagManagement/index')
-    }]
-  },
-  {
     path: '/friendLink',
     component: Layout,
     redirect: '/friendLink/index',

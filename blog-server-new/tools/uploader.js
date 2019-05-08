@@ -2,7 +2,7 @@ const express = require('express');
 const formidable = require('formidable');
 const router = express.Router();
 const OSS = require('ali-oss');
-import {ALI_OSS_ACCESS_KEY_ID, ALI_OSS_ACCESS_KEY_SECRET, ALI_OSS_BUCKET, ALI_OSS_REGION} from '../tools/constant';
+import {ALI_OSS_ACCESS_KEY_ID, ALI_OSS_ACCESS_KEY_SECRET, ALI_OSS_BUCKET, ALI_OSS_REGION, responseClient} from '../tools/constant';
 
 const client = new OSS({
   region: ALI_OSS_REGION,
@@ -11,7 +11,7 @@ const client = new OSS({
   bucket: ALI_OSS_BUCKET
 });
 
-router.post('/uploads', (req, res, next) => {
+router.post('/upload', (req, res, next) => {
 
   const form = new formidable.IncomingForm();
   // form.uploadDir = './public/images_backup';
@@ -28,12 +28,21 @@ router.post('/uploads', (req, res, next) => {
     try {
       if (files.avatar) {
         const result = await client.put(files.avatar.name, files.avatar.path);
-        res.status(200).json({path: result.url.slice(5)});
+        let tmp = {
+          name: result.name,
+          url: result.url.slice(5)
+        }
+        responseClient(res, 200, 0, '上传成功', tmp)
       } else {
         const result = await client.put(files.file.name, files.file.path);
-        res.status(200).json({path: result.url.slice(5)});
+        let tmp = {
+          name: result.name,
+          url: result.url.slice(5)
+        }
+        responseClient(res, 200, 0, '上传成功', tmp)
       }
-    } catch (err) {
+    } catch (err) {     
+      responseClient(res, 200, -1, '上传失败', err)
       return err
     }
   });

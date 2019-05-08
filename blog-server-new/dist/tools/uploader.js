@@ -15,7 +15,7 @@ const client = new OSS({
   bucket: _constant.ALI_OSS_BUCKET
 });
 
-router.post('/uploads', (req, res, next) => {
+router.post('/upload', (req, res, next) => {
 
   const form = new formidable.IncomingForm();
   // form.uploadDir = './public/images_backup';
@@ -32,12 +32,21 @@ router.post('/uploads', (req, res, next) => {
     try {
       if (files.avatar) {
         const result = await client.put(files.avatar.name, files.avatar.path);
-        res.status(200).json({ path: result.url.slice(5) });
+        let tmp = {
+          name: result.name,
+          url: result.url.slice(5)
+        };
+        (0, _constant.responseClient)(res, 200, 0, '上传成功', tmp);
       } else {
         const result = await client.put(files.file.name, files.file.path);
-        res.status(200).json({ path: result.url.slice(5) });
+        let tmp = {
+          name: result.name,
+          url: result.url.slice(5)
+        };
+        (0, _constant.responseClient)(res, 200, 0, '上传成功', tmp);
       }
     } catch (err) {
+      (0, _constant.responseClient)(res, 200, -1, '上传失败', err);
       return err;
     }
   });

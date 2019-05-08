@@ -13,6 +13,7 @@ import UserInfo from './userInfo';
 import GlobalStatus from './globalStatus';
 import User from './user';
 import Article from './article';
+import Category from './category'
 
 export {
   Announcement,
@@ -30,4 +31,5 @@ export {
   GlobalStatus,
   User,
   Article,
+  Category
 }

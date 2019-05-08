@@ -14,8 +14,6 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "@riophae/vue-treeselect": "0.0.37",
-    "@tinymce/tinymce-vue": "^1.1.0",
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "element-ui": "^2.4.11",
@@ -23,8 +21,8 @@
     "lunar-calendar-vue2": "^1.1.1",
     "normalize.css": "^8.0.0",
     "nprogress": "^0.2.0",
-    "tinymce": "^4.8.5",
     "vue": "^2.5.17",
+    "vue-meditor": "^0.9.3",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },

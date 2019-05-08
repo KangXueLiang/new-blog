@@ -30,7 +30,7 @@ const app = express();
 mongoose.Promise = global.Promise;
 
 mongoose.connect('mongodb://localhost:27017/blog',
-  {useNewUrlParser: true}
+  {useNewUrlParser: true, useFindAndModify: false}
 );
 
 app.use(bodyParser.json());

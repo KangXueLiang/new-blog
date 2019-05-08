@@ -18,6 +18,7 @@ const articleSchema = new Schema({
     like_count: {
       type: Array,
       required: false,
+      default: 0,
     },
     pv_count: {
       type: Number,
@@ -28,7 +29,15 @@ const articleSchema = new Schema({
       type: Array,
       required: true,
     },
-    content: {
+    category: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Category'
+    },
+    contentHtml: {
+      type: String,
+      required: true,
+    },
+    contentMarkdown: {
       type: String,
       required: true,
     },

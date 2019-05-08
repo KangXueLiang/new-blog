@@ -105,7 +105,7 @@ const app = (0, _express2.default)();
 
 _mongoose2.default.Promise = global.Promise;
 
-_mongoose2.default.connect('mongodb://localhost:27017/blog', { useNewUrlParser: true });
+_mongoose2.default.connect('mongodb://localhost:27017/blog', { useNewUrlParser: true, useFindAndModify: false });
 
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: true }));

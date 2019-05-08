@@ -115,10 +115,7 @@ router.post('/login', (req, res) => {
         };
         (0, _constant.responseClient)(res, 200, 0, '登录成功', result);
       } else {
-        res.status(1).send({
-          success: false,
-          message: '用户名或密码错误'
-        });
+        (0, _constant.responseClient)(res, 200, -1, '用户名或密码错误');
       }
     });
   } catch (e) {
@@ -126,7 +123,7 @@ router.post('/login', (req, res) => {
   }
 });
 
-router.post('/modifyPassword', async (req, res) => {
+router.post('/resetPwd', async (req, res) => {
   try {
     await _index.User.findOne({
       email: req.body.email,
@@ -142,15 +139,9 @@ router.post('/modifyPassword', async (req, res) => {
         }, {
           new: true
         });
-        res.status(201).send({
-          success: true,
-          message: 'Password has been modified!'
-        });
+        (0, _constant.responseClient)(res, 200, 0, 'Password has been modified!');
       } else {
-        return res.status(401).json({
-          success: false,
-          message: 'Email and password do not match'
-        });
+        (0, _constant.responseClient)(res, 401, -1, 'Email and password do not match');
       }
     });
   } catch (e) {
