@@ -23,6 +23,9 @@ export function handleResponseError(res) {
         type: 'error',
         duration: 5 * 1000
       })
+      store.dispatch('FedLogOut').then(() => {
+        location.href = '/login' // 为了重新实例化vue-router对象 避免bug
+      })
       break
       case 1103:
         Message({

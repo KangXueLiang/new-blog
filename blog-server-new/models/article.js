@@ -30,7 +30,7 @@ const articleSchema = new Schema({
       required: true,
     },
     category: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'Category'
     },
     contentHtml: {

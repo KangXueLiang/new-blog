@@ -55,21 +55,6 @@ export const constantRouterMap = [
       component: loadComponent('views/home/index')
     }]
   },
-  // 个人中心，通用（菜单内不可见）
-  {
-    path: '/userCenter',
-    component: Layout,
-    redirect: '/userCenter/index',
-    hidden: true,
-    name: '个人中心',
-    meta: { title: '个人中心', icon: 'iconfont icon-icon_18' },
-    children: [{
-      path: 'index',
-      name: '修改密码',
-      meta: { title: '修改密码', icon: 'iconfont iconicon_21' },
-      component: loadComponent('views/userCenter/index')
-    }]
-  },
   {
     path: '/userManagement',
     component: Layout,
@@ -152,6 +137,31 @@ export const constantRouterMap = [
       name: '时间轴列表',
       meta: { title: '时间轴列表', icon: 'iconfont iconicon_21' },
       component: loadComponent('views/timeLine/index')
+    }]
+  },
+  // 个人中心，通用
+  {
+    path: '/userCenter',
+    component: Layout,
+    redirect: '/userCenter/index',
+    name: '个人中心',
+    alwaysShow: true,
+    meta: { title: '个人中心', icon: 'iconfont iconicon_17' },
+    children: [{
+      path: 'index',
+      name: '资料管理',
+      meta: { title: '资料管理', icon: 'iconfont iconicon_21' },
+      component: loadComponent('views/userCenter/index')
+    }, {
+      path: 'motto',
+      name: 'Motto',
+      meta: { title: 'Motto', icon: 'iconfont iconicon_21' },
+      component: loadComponent('views/userCenter/motto')
+    }, {
+      path: 'announcement',
+      name: 'Announcement',
+      meta: { title: 'Announcement', icon: 'iconfont iconicon_21' },
+      component: loadComponent('views/userCenter/announcement')
     }]
   },
   {

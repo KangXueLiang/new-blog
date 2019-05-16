@@ -1,52 +1,69 @@
-import express from 'express';
-import { UserInfo } from '../models/index';
+import express from 'express'
+import { UserInfo } from '../models/index'
+import {responseClient} from '../tools/constant'
 
-const router = express.Router();
+const router = express.Router()
 
-router.get('/userInfo', async (req, res, next) => {
+// 获取个人信息
+router.get('/userInfo',  (req, res, next) => {
   try {
-    const result = await UserInfo.find({}).sort({_id: -1});
-    return res.status(200).json(result[0]);
-  } catch (e) {
-    return res.json(e.message);
-  }
-});
-
-router.post('/userInfo', (req, res, next) => {
-  try {
-    UserInfo.create(req.body, (err, UserInfo) => {
-      if(err){
-        return res.json(err);
-      }else {
-        return res.status(200).json(UserInfo);
+    UserInfo.find({}, (err, result) => {
+      if (err) {
+        responseClient(res, 200, -1, '失败', [])
+      } else {
+        responseClient(res, 200, 0, '成功', result)
       }
     })
   } catch (e) {
-    return res.status(500).send('Unknown Server Error');
+    responseClient(res, 200, -1, '失败', [])
   }
 });
 
-router.put('/userInfo/:id', async (req, res) => {
+
+// 创建/更新个人信息
+
+router.post('/userInfo', (req, res, next) => {
   try {
-    const result = await UserInfo.findOneAndUpdate({
-        _id: req.params.id
-      },
-      {
-        $set: {
-            user_name: req.body.user_name,
-            position: req.body.position,
-            self_introduction: req.body.self_introduction,
-            city: req.body.city,
-            avatar: req.body.avatar,
+    UserInfo.count({}, (err, count) => {
+      if (err) {
+        responseClient(res, 200, -1, '修改个人信息失败')
+      } else {
+        if (count === 0) {
+          UserInfo.create(req.body, (err, UserInfo) => {
+            if(err){
+              responseClient(res, 200, -1, '创建个人信息失败')
+            }else {
+              responseClient(res, 200, 0, '创建个人信息成功', UserInfo)
+            }
+          })
+        } else {
+          UserInfo.findOneAndUpdate({
+            _id: result._id
+          },
+          {
+            $set: {
+                user_name: req.body.user_name,
+                position: req.body.position,
+                self_introduction: req.body.self_introduction,
+                city: req.body.city,
+                avatar: req.body.avatar,
+            }
+          }, {
+            new: true,
+          }, (err, result) => {
+            if(err){
+              responseClient(res, 200, -1, '修改个人信息失败')
+            }else {
+              responseClient(res, 200, 0, '修改个人信息成功', UserInfo)
+            }
+          });     
         }
-      }, {
-        new: true,
-      });
-    return res.status(201).send(result);
+      }
+    })
   } catch (e) {
-    return res.json(e.message);
+    responseClient(res, 200, -1, '修改个人信息失败')
   }
-});
+})
 
-module.exports = router;
+module.exports = router
 

@@ -11,6 +11,16 @@
               placeholder="请输入文章标题">
             </el-input>
           </el-form-item>
+          <el-form-item label="文章分类" prop="category">
+            <el-select v-model="ruleForm.category" placeholder="请选择">
+              <el-option
+                v-for="item in categoryList"
+                :key="item._id"
+                :label="item.name"
+                :value="item._id">
+              </el-option>
+            </el-select>
+          </el-form-item>
           <el-form-item label="封面图：" prop="header_cover">
             <upload-img
                 :type="'header_cover'"
@@ -84,8 +94,10 @@
     props: ['article', 'alert'],
     data() {
       return {
+        categoryList: [], // 分类列表
         // 表单数据
         ruleForm: {
+          category: '',
           contentHtml: '',
           contentMarkdown: '',
           title: '',
@@ -103,6 +115,7 @@
       'alert.showalert' (val) {
         if (this.article && val) {
           this.ruleForm = {
+            category: this.article.category,
             title: this.article.title,
             summary: this.article.summary,
             header_cover: this.article.header_cover,
@@ -118,6 +131,7 @@
           }
         } else {
           this.ruleForm = {
+            category: '',
             contentHtml: '',
             contentMarkdown: '',
             title: '',
@@ -133,6 +147,16 @@
       }
     },
     methods: {
+      // 获取文章分类列表
+      getCategoryList() {
+        this.$http.get('api/category/list', {
+          keywords: this.keywords
+        }).then(res => {
+          this.categoryList = res.data
+        }).catch(e => {
+          this.$message.error(e || '获取文章列表失败')
+        })
+      },
       restore() {
       },
       save(res) {
@@ -159,7 +183,6 @@
       },
       // 确认
       submitForm() {
-        console.log('content', this.content.htmlValue)
         let _data = {
           title: this.ruleForm.title,
           summary: this.ruleForm.summary, // 文章描述
@@ -167,7 +190,8 @@
           contentHtml: this.content.htmlValue,
           contentMarkdown: this.content.markdownValue,
           tags: this.ruleForm.tags, // 标签
-          status: this.ruleForm.status
+          status: this.ruleForm.status,
+          category: this.ruleForm.category
         }
         let url = ''
         if (this.article) {
@@ -210,6 +234,7 @@
       }
     },
     created() {
+      this.getCategoryList()
     }
   }
 </script>

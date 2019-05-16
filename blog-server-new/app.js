@@ -8,6 +8,8 @@ import JWTAuth from './jwt/jwt';
 
 // 路由文件引入
 import article from './router/article';
+import category from './router/category';
+import friendLink from './router/friendLink';
 import aplayer from './router/player';
 import project from './router/project';
 import cover from './router/cover';
@@ -24,6 +26,8 @@ import bandwagon from './router/bandwagon';
 import uploader from './tools/uploader';
 import userInfo from './router/userInfo';
 import globalStatus from './router/globalStatus';
+import {responseClient} from './tools/constant';
+
 
 const app = express();
 
@@ -55,11 +59,12 @@ app.all('*', function (req, res, next) {
 app.use(JWTAuth);
 app.use((err, req, res, next) => {
   if (err.name === 'UnauthorizedError') {
-    res.status(401).json(err);
+    responseClient(res, 200, 1102, '帐号未登录')
   }
-  next();
 });
 app.use('/api', article);
+app.use('/api', category);
+app.use('/api', friendLink);
 app.use('/api', aplayer);
 app.use('/api', project);
 app.use('/api', cover);

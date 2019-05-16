@@ -41,7 +41,7 @@ router.post('/upload', (req, res, next) => {
         }
         responseClient(res, 200, 0, '上传成功', tmp)
       }
-    } catch (err) {     
+    } catch (err) {
       responseClient(res, 200, -1, '上传失败', err)
       return err
     }

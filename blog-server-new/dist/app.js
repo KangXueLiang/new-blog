@@ -32,6 +32,14 @@ var _article = require('./router/article');
 
 var _article2 = _interopRequireDefault(_article);
 
+var _category = require('./router/category');
+
+var _category2 = _interopRequireDefault(_category);
+
+var _friendLink = require('./router/friendLink');
+
+var _friendLink2 = _interopRequireDefault(_friendLink);
+
 var _player = require('./router/player');
 
 var _player2 = _interopRequireDefault(_player);
@@ -96,12 +104,12 @@ var _globalStatus = require('./router/globalStatus');
 
 var _globalStatus2 = _interopRequireDefault(_globalStatus);
 
+var _constant = require('./tools/constant');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const app = (0, _express2.default)();
-
 // 路由文件引入
-
+const app = (0, _express2.default)();
 
 _mongoose2.default.Promise = global.Promise;
 
@@ -128,11 +136,12 @@ app.all('*', function (req, res, next) {
 app.use(_jwt2.default);
 app.use((err, req, res, next) => {
   if (err.name === 'UnauthorizedError') {
-    res.status(401).json(err);
+    (0, _constant.responseClient)(res, 200, 1102, '帐号未登录');
   }
-  next();
 });
 app.use('/api', _article2.default);
+app.use('/api', _category2.default);
+app.use('/api', _friendLink2.default);
 app.use('/api', _player2.default);
 app.use('/api', _project2.default);
 app.use('/api', _cover2.default);

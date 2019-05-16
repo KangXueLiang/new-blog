@@ -24,6 +24,7 @@ module.exports = {
   // BANDWAGON_SERVER_ID: 'your_BANDWAGON_SERVER_ID',
   // BANDWAGON_BASE_URL: 'https://api.64clouds.com/v1/',
 
+  // 阿里云的图床配置
   ALI_OSS_REGION: 'oss-cn-shenzhen',
   ALI_OSS_ACCESS_KEY_ID: 'LTAIX9I4fykIlfqo',
   ALI_OSS_ACCESS_KEY_SECRET: 'utOgeivwy3R9dP7nYJG8UPs6hcUgUA',

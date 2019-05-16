@@ -116,6 +116,11 @@ a:hover {
   min-height: 100%;
   padding: 20px;
   padding-top: 90px;
+  background-color: #f9f9f9;
+  .container {
+    padding: 16px 8px;
+    background: #fff;
+  }
   // 编辑页form通用样式
   .save-content {
     // 覆盖element的表单样式

@@ -9,11 +9,14 @@ import Player from './player';
 import WorkExperience from './workExperience';
 import ProgramExperience from './programExperience';
 import About from './about';
-import UserInfo from './userInfo';
 import GlobalStatus from './globalStatus';
 import User from './user';
-import Article from './article';
-import Category from './category'
+
+import Article from './article'; // 文章
+import Category from './category' // 文章分类
+import FriendLink from './friendLink' // 友链
+import UserInfo from './userInfo'; // 个人中心
+
 
 export {
   Announcement,
@@ -31,5 +34,6 @@ export {
   GlobalStatus,
   User,
   Article,
-  Category
+  Category,
+  FriendLink
 }

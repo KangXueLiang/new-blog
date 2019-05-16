@@ -49,17 +49,6 @@
     </main>
     <!-- 弹窗 -->
     <add-category :alert="alert" :category="currentCategory" @close="closeAlert" @submit="submitAlert()"></add-category>
-    <!-- 底部分页 -->
-    <footer>
-      <div class="common-pagination" v-if="total > 0">
-        <pagination-base 
-          :total="total"
-          :pageSize="page_size"
-          :currentPage="currentPage" 
-          @currentChange="currentChange">
-        </pagination-base>
-      </div>
-    </footer>
   </div>
 </template>
 <script>
@@ -71,10 +60,6 @@ export default {
   data() {
     return {
       loading: false,
-      // 分页数据
-      total: 0,
-      page_size: 20,
-      currentPage: 1,
       keywords: '',
       categoryList: [],
       alert: {
@@ -97,8 +82,6 @@ export default {
         keywords: this.keywords
       }).then(res => {
         this.categoryList = res.data
-      }).catch(e => {
-        this.$message.error(e || '获取失败')
       })
     },
     // 删除分类
@@ -113,12 +96,8 @@ export default {
         }).then(res => {
           this.$message.success('删除成功')
           this.getList()
-        }).catch(e => {
-          this.$message.error(e || '删除失败')
         })
-      }).catch(() => {
-        console.log('取消操作')         
-      })  
+      }) 
     },
     // 新增分类
     addCategory() {

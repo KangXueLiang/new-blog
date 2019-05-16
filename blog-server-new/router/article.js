@@ -54,6 +54,7 @@ router.post('/articles/modify', (req, res) => {
           contentMarkdown: req.body.contentMarkdown,
           tags: req.body.tags,
           status: req.body.status,
+          category: req.body.category
         }
       }, (err) => {
         if (err) {
@@ -133,57 +134,6 @@ router.post('/articles/delete', (req, res) => {
 //   }
 // });
 
-// get all category
-router.get('/category/list', async (req, res, next) => {
-  try {
-    const result = await Category.find({});
-    responseClient(res, 200, 0, '成功', result)
-  } catch (e) {
-    console.log(e)
-    responseClient(res, 200, -1, '失败', [])
-  }
-});
-
-// add or edit category
-router.post('/category/edit', async (req, res, next) => {
-  let id = req.body.id
-  let category = await Category.findById(id)
-  if (category) {
-    Category.findByIdAndUpdate(id, {
-      $set: {
-        name: req.body.name,
-        description: req.body.description
-      }
-    }, (err) => {
-      if (err) {
-        responseClient(res, 200, -1, '', '编辑失败')
-      } else {
-        responseClient(res, 200, 0, '', '编辑成功')
-      }
-    })
-  } else {
-    Category.create(req.body, (err, category) => {
-      err ? responseClient(res, 200, -1, '添加分类失败', err) : responseClient(res, 200, 0, '添加分类成功', category);
-    })
-  }
-})
-
-// delete categroy
-router.post('/category/delete', (req, res, next) => {
-  try {
-    let id = req.body.id
-    Category.findByIdAndDelete(id, (err) => {
-      if (err) {
-        responseClient(res, 200, -1, '', '删除失败')
-      } else {
-        responseClient(res, 200, 0, '', '删除成功')
-      }
-    })
-  } catch (e) {
-    responseClient(res, 200, -1, '', e.message)
-    return next(e)
-  }
-})
 // // get articles by tags
 // router.get('/articlesByTag', async (req, res, next) => {
 //   try {

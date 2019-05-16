@@ -36,7 +36,7 @@ const articleSchema = new Schema({
     required: true
   },
   category: {
-    type: _mongoose2.default.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'Category'
   },
   contentHtml: {
