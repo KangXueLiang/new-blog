@@ -7,7 +7,7 @@ import Search from '@components/Post/Search/Search';
 import styles from './Header.module.scss';
 import routePath from '@constants/routePath';
 import { svgSprite } from '@constants/constants';
-import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
+import svgIcons from '@assets/images/kk-official-blog-svg-icons.svg';
 import { IArticleProps, IHeaderState } from '../../../types/article';
 
 const headerList = {
@@ -23,14 +23,14 @@ const headerList = {
     url: routePath.archive,
     icon: svgSprite.archive,
   },
-  music: {
-    url: routePath.music,
-    icon: svgSprite.music,
-  },
-  apps: {
-    url: routePath.apps,
-    icon: svgSprite.apps,
-  },
+  // music: {
+  //   url: routePath.music,
+  //   icon: svgSprite.music,
+  // },
+  // apps: {
+  //   url: routePath.apps,
+  //   icon: svgSprite.apps,
+  // },
   CV: {
     url: routePath.cv,
     icon: svgSprite.cv,

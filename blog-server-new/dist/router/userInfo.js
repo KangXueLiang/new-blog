@@ -15,7 +15,7 @@ const router = _express2.default.Router();
 // 获取个人信息
 router.get('/userInfo', (req, res, next) => {
   try {
-    _index.UserInfo.find({}, (err, result) => {
+    _index.UserInfo.findOne({}, (err, result) => {
       if (err) {
         (0, _constant.responseClient)(res, 200, -1, '失败', []);
       } else {
@@ -45,7 +45,7 @@ router.post('/userInfo', (req, res, next) => {
           });
         } else {
           _index.UserInfo.findOneAndUpdate({
-            _id: result._id
+            _id: req.body._id
           }, {
             $set: {
               user_name: req.body.user_name,
@@ -60,7 +60,7 @@ router.post('/userInfo', (req, res, next) => {
             if (err) {
               (0, _constant.responseClient)(res, 200, -1, '修改个人信息失败');
             } else {
-              (0, _constant.responseClient)(res, 200, 0, '修改个人信息成功', _index.UserInfo);
+              (0, _constant.responseClient)(res, 200, 0, '修改个人信息成功', result);
             }
           });
         }

@@ -23,8 +23,7 @@
           <i class="el-icon-caret-bottom"></i> -->
         </div>
         <el-dropdown-menu slot="dropdown" class="sls-avatar-lists-wrap">
-          <el-dropdown-item v-if="handleAdmin()"><div @click="go('myProfile')">我的资料</div></el-dropdown-item>
-          <el-dropdown-item><div @click="go('userCenter')">修改密码</div></el-dropdown-item>
+          <el-dropdown-item><div @click="go('userCenter')">个人中心</div></el-dropdown-item>
           <!-- <el-dropdown-item v-has="['menu-user-management-index']"><div @click="go('user')">用户管理</div></el-dropdown-item>
           <el-dropdown-item v-has="['menu-role-management-index']"><div @click="go('role')">角色管理</div></el-dropdown-item> -->
           <el-dropdown-item><div @click="logout">退出账户</div></el-dropdown-item>

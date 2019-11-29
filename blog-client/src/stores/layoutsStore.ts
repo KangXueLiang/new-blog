@@ -57,7 +57,7 @@ class LayoutsStore {
     try {
       const res = await layoutsService.getGlobalStatus();
       runInAction(() => {
-        this.globalStatus = res.data;
+        this.globalStatus = res.data || {};
       });
     } catch (e) {
       setToast('获取全局状态失败');

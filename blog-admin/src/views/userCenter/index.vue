@@ -5,6 +5,12 @@
         <el-tab-pane label="个人中心">
           <user-info></user-info>
         </el-tab-pane>
+        <el-tab-pane label="工作经历">
+          <work-experience></work-experience>
+        </el-tab-pane>
+        <el-tab-pane label="项目经历">
+          <program-experience></program-experience>
+        </el-tab-pane>
         <el-tab-pane label="密码修改">
           <modify-password></modify-password>
         </el-tab-pane>
@@ -15,10 +21,14 @@
 <script>
   import ModifyPassword from './components/ModifyPassword'
   import UserInfo from './components/UserInfo'
+  import WorkExperience from './components/WorkExperience'
+  import ProgramExperience from './components/ProgramExperience'
   export default {
     components: {
       ModifyPassword,
-      UserInfo
+      UserInfo,
+      WorkExperience,
+      ProgramExperience
     },
     data() {
       return {

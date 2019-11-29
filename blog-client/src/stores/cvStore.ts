@@ -30,7 +30,7 @@ class CVStore {
     try {
       const res = await cvService.getUser();
       runInAction(() => {
-        this.user = res.data;
+        this.user = res.data.data;
       });
     } catch (e) {
       setToast('获取个人信息失败');
@@ -41,7 +41,7 @@ class CVStore {
     try {
       const res = await cvService.getWorkExperience();
       runInAction(() => {
-        this.workExperience = res.data;
+        this.workExperience = res.data.data;
       });
     } catch (e) {
       setToast('获取工作经历失败');
@@ -52,7 +52,8 @@ class CVStore {
     try {
       const res = await cvService.getProgramExperience();
       runInAction(() => {
-        this.programExperience = res.data;
+        this.programExperience = res.data.data;
+        // this.programExperience = [];
       });
     } catch (e) {
       setToast('获取项目经历失败');

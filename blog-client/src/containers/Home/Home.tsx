@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import Title from '@components/Common/Title/Title';
 import { inject, observer } from 'mobx-react/index';
 import cs from 'classnames';
-import { socialMedia, webpSuffix, svgSprite } from '@constants/constants';
+import { socialMedia, svgSprite } from '@constants/constants';
 import routePath from '@constants/routePath';
-import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
+import svgIcons from '@assets/images/kk-official-blog-svg-icons.svg';
 import PostSummary from '@components/Post/PostSummary/PostSummary';
 import styles from './Home.module.scss';
 import { IHomeProps } from '../../types/home';
@@ -30,13 +30,14 @@ class Home extends React.Component<IHomeProps, {}> {
 
   public render() {
     const { homeStore } = this.props;
-    const isWebp = window.localStorage.isWebp === 'true';
+    // 这里模拟数据
+    // const isWebp = window.localStorage.isWebp === 'true';
     return (
-      <main className={styles.yancey_blog_home}>
-        <Title title='Yancey Official Blog' />
+      <main className={styles.kk_blog_home}>
+        <Title title='kk Official Blog' />
         <section id='background' className={styles.ad_wrapper}>
-          <h1 className={styles.glitch} data-value='HI, YANCEY!'>
-            HI, YANCEY!
+          <h1 className={styles.glitch} data-value='HI, 巡礼者!'>
+            HI, 巡礼者!
           </h1>
           <div className={styles.social_media_container}>
             <div className={styles.up_triangle} />
@@ -100,7 +101,8 @@ class Home extends React.Component<IHomeProps, {}> {
             <span>{homeStore!.announcement}</span>
           </article>
           {/* projects */}
-          <article className={styles.new_release_wrapper}>
+          {/* 项目展示，先关闭 */}
+          {/* <article className={styles.new_release_wrapper}>
             <h2 className={styles.new_release_tips}>
               <svg className={styles.icon}>
                 <use xlinkHref={`${svgIcons}${svgSprite.fire}`} />
@@ -127,7 +129,7 @@ class Home extends React.Component<IHomeProps, {}> {
                 </div>
               ))}
             </div>
-          </article>
+          </article> */}
           {/* new post summary */}
           <article className={styles.blog_summary_wrapper}>
             <h2 className={styles.blog_summary_tips}>

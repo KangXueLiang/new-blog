@@ -20,6 +20,7 @@ export interface ArticleStoreType {
   getAllTags: () => void;
   getPostsByTag: (tag?: string) => void;
   getHots: () => void;
+  getArticle: () => void;
   getArchives: () => void;
   getPostById: (id: string) => void;
   handleLikes: () => void;
@@ -32,13 +33,20 @@ export interface IArticleProps {
   articleStore?: ArticleStoreType;
   location?: any;
 }
-
+export interface IArticleWrap {
+  Amount: number;
+  posts: IArticleDetail[]
+}
+export interface ArticleList {
+  page: number;
+  state?: number
+}
 export interface IArticleDetail {
   _id: string;
   header_cover: string;
   title: string;
   summary: string;
-  content: string;
+  contentHtml: string;
   publish_date: string;
   last_modified_date: string;
   tags: string[];

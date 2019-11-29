@@ -1,25 +1,25 @@
-export const domain = 'https://www.yanceyleo.com';
+export const domain = 'https://www.kklovett.com';
 
-export const aliOSS = '//yancey-assets.oss-cn-beijing.aliyuncs.com';
+export const aliOSS = '//logan-blog.oss-cn-shenzhen.aliyuncs.com/blog-detail';
 export const webpSuffix = '?x-oss-process=image/format,webp';
 export const thumbSuffix = '?x-oss-process=image/resize,w_120/quality,Q_10';
 export const middleThumbSuffix = '?x-oss-process=image/resize,w_360/quality,Q_90';
 
 export const miku = `${aliOSS}/miku.gif`;
-export const blogBg = `${aliOSS}/static/blog_page_header.jpg`;
-export const archiveBg = `${aliOSS}/static/archive_page_header.jpg`;
-export const musicBg = `${aliOSS}/static/music_page_header.jpg`;
-export const avatar = `${aliOSS}/static/logo_avatar.jpg`;
-export const legalBg = `${aliOSS}/static/legal_page_header.jpg`;
+export const blogBg = `${aliOSS}/blog_page_header.jpg`;
+export const archiveBg = `${aliOSS}/archive_page_header.jpg`;
+export const musicBg = `${aliOSS}/music_page_header.jpg`;
+export const avatar = `${aliOSS}/logo_avatar.jpg`;
+export const legalBg = `${aliOSS}/legal_page_header.jpg`;
 export const loading = `${aliOSS}/sitelogo.svg`;
 
-export const GA = 'UA-114532340-1';
+export const GA = 'UA-153213304-1';
 
-export const ipify = 'https://api.ipify.org/';
+export const ipify = 'https://api.ipify.org';
 
-export const byNcSa = 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en';
+export const byNcSa = '';
 
-export const livere = 'MTAyMC8zOTU5NC8xNjEyMQ==';
+export const livere = '';
 
 export const svgSprite = {
   telegram: '#telegram',
@@ -85,35 +85,35 @@ export const svgSprite = {
 
 export const socialMedia = {
   github: {
-    url: 'https://github.com/YanceyOfficial/',
+    url: 'https://github.com/kangxueliang/',
     icon: '#github',
   },
-  twitter: {
-    url: 'https://twitter.com/YanceyOfficial/',
-    icon: '#twitter',
-  },
-  instagram: {
-    url: 'https://www.instagram.com/yancey_leo/',
-    icon: '#instagram',
-  },
-  soundCloud: {
-    url: 'https://soundcloud.com/yancey-leo/',
-    icon: '#soundcloud',
-  },
-  telegram: {
-    url: 'https://t.me/YanceyOfficial',
-    icon: '#telegram',
-  },
-  paypal: {
-    url: 'https://www.paypal.me/yanceyleo/10usd',
-    icon: '#paypal',
-  },
+  // twitter: {
+  //   url: 'https://twitter.com/YanceyOfficial/',
+  //   icon: '#twitter',
+  // },
+  // instagram: {
+  //   url: 'https://www.instagram.com/yancey_leo/',
+  //   icon: '#instagram',
+  // },
+  // soundCloud: {
+  //   url: 'https://soundcloud.com/yancey-leo/',
+  //   icon: '#soundcloud',
+  // },
+  // telegram: {
+  //   url: 'https://t.me/YanceyOfficial',
+  //   icon: '#telegram',
+  // },
+  // paypal: {
+  //   url: 'https://www.paypal.me/yanceyleo/10usd',
+  //   icon: '#paypal',
+  // },
   wechat: {
     url: '/',
     icon: '#wechat',
   },
   email: {
-    url: 'mailto:yanceyofficial@gmail.com',
+    url: 'mailto:kangqiang0726@gmail.com',
     icon: '#mail',
   },
 };

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { observer, inject } from 'mobx-react';
 import 'lazysizes';
 import styles from './PostSummary.module.scss';
-import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
+import svgIcons from '@assets/images/kk-official-blog-svg-icons.svg';
 import routePath from '@constants/routePath';
 import { formatJSONDate } from '@tools/tools';
 import { webpSuffix, thumbSuffix, svgSprite } from '@constants/constants';

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
+import svgIcons from '@assets/images/kk-official-blog-svg-icons.svg';
 import styles from './Footer.module.scss';
 import routePath from '@constants/routePath';
 import { svgSprite, socialMedia } from '@constants/constants';
@@ -35,13 +35,13 @@ class Footer extends React.Component<{}, {}> {
             <svg className={styles.icon_heart}>
               <use xlinkHref={`${svgIcons}${svgSprite.heart}`} />
             </svg>
-            by Yancey
+            by 巡礼者
           </p>
 
           <hr className={styles.dot_split} />
           <section className={styles.copyright_wrapper}>
             <p className={styles.copyright}>
-              Copyright &copy; {new Date().getFullYear()} Yancey Inc. All rights
+              Copyright &copy; {new Date().getFullYear()} 巡礼者 Inc. All rights
               reserved.
             </p>
             <ul>

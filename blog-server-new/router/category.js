@@ -5,6 +5,7 @@ import {responseClient} from '../tools/constant';
 
 const router = express.Router();
 
+// BE
 // get all category
 router.get('/category/list', async (req, res, next) => {
   try {
@@ -55,5 +56,17 @@ router.post('/category/delete', (req, res, next) => {
     return next(e)
   }
 })
+
+// FE
+router.get('/categoryList', async (req, res, next) => {
+  try {
+    const result = await Category.find({});
+    responseClient(res, 200, 0, '成功', result.map(item => {
+      return item.name
+    }))
+  } catch (e) {
+    responseClient(res, 200, -1, '失败', [])
+  }
+});
 
 module.exports = router;

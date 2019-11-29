@@ -23,6 +23,7 @@ router.get('/covers/:id', async (req, res, next) => {
       status: true,
       time: new Date().getTime(),
     });
+    console.log('req.query', req.query)
     // if you want to switch a previous cover
     if (req.query.position === 'prev') {
       // get the previous cover by current id if it can be shown

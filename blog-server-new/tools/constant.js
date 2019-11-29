@@ -16,13 +16,6 @@ module.exports = {
 		responseData.data = data;
 		res.status(httpCode).json(responseData);
 	},
-  // RECAPTCHA_SECRET_KEY: 'your_RECAPTCHA_SECRET_KEY',
-  // RECAPTCHA_SITE_KEY: 'your_RECAPTCHA_SITE_KEY',
-  // GOOGLE_RECAPTCHA_API: 'https://www.google.com/recaptcha/api/siteverify',
-
-  // BANDWAGON_SECRET_KEY: 'your_BANDWAGON_SECRET_KEY',
-  // BANDWAGON_SERVER_ID: 'your_BANDWAGON_SERVER_ID',
-  // BANDWAGON_BASE_URL: 'https://api.64clouds.com/v1/',
 
   // 阿里云的图床配置
   ALI_OSS_REGION: 'oss-cn-shenzhen',

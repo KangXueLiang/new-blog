@@ -1,9 +1,10 @@
 // main
 @font-face {
   font-family: 'Ubuntu';
-  src: url("https://yancey-assets.oss-cn-beijing.aliyuncs.com/font/Ubuntu-Regular.woff2");
+  src: url("//logan-blog.oss-cn-shenzhen.aliyuncs.com/blog-detail/font/Ubuntu-Regular.woff2");
   font-display: swap;
 }
+
 
 // code tag
 @font-face {
@@ -29,7 +30,7 @@ body {
 
 html,
 body {
-  cursor: url("../images/normal.cur"), auto;
+  // cursor: url("../images/normal.cur"), auto;
 }
 
 .App {

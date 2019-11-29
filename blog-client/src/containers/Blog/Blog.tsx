@@ -7,7 +7,7 @@ import Pagination from 'rc-pagination';
 import localeInfo from 'rc-pagination/lib/locale/en_US';
 import 'rc-pagination/assets/index.css';
 import styles from './Blog.module.scss';
-import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
+import svgIcons from '@assets/images/kk-official-blog-svg-icons.svg';
 import { blogBg, webpSuffix, svgSprite } from '@constants/constants';
 import routePath from '@constants/routePath';
 import BlogSummary from '@components/Post/PostSummary/PostSummary';
@@ -49,7 +49,7 @@ class Blog extends React.Component<IArticleProps, {}> {
             })`,
           }}
         >
-          <span>Tech, Music and Life.</span>
+          <span>Tech, Family and Life.</span>
         </figure>
         <div className={styles.main_content}>
           <section>

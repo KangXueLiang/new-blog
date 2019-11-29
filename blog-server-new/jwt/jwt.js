@@ -31,6 +31,7 @@ const JWTAuth = expressJWT({
       {url: '/api/latestThreeProjects', methods: ['GET']},
       {url: '/api/yanceyMusic', methods: ['GET']},
       {url: '/api/globalStatus', methods: ['GET']},
+      {url: '/api/categoryList', methods: ['GET']},
     ]
   }
 );

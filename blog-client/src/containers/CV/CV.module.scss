@@ -14,7 +14,7 @@
   border-radius: .5rem;
 
   .avatar {
-    height: 13rem;
+    height: 16rem;
     background-repeat: no-repeat;
     background-position: 0 0;
     background-size: cover;
@@ -59,6 +59,7 @@
 
         &:last-child {
           margin-bottom: 0;
+          text-align: center;
         }
       }
     }

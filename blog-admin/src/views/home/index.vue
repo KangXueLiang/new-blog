@@ -1,7 +1,7 @@
 <template>
   <div class="home-container">
     <div>
-      <p style="padding: 16px 0 16px 24px; font-size: 24px;">Hi, {{userName}}，愿你每天都有一个好心情~</p>
+      <p style="padding: 16px 0 16px 24px; font-size: 24px;">Hi，康强，愿你每天都有一个好心情~</p>
     </div>
     <div style="width: 400px;">
       <lunar-calendar @choseDay="clickDay" ref="Calendar"></lunar-calendar>
@@ -20,9 +20,6 @@ export default {
     }
   },
   computed: {
-    userName() {
-      return this.$store.state.user.name
-    }
   },
   methods: {
     clickDay(date) {

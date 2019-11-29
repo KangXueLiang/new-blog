@@ -47,7 +47,10 @@ axios.interceptors.request.use(
 );
 // config response interceptors
 axios.interceptors.response.use(
-  (response: AxiosResponse) => response,
+  (response: AxiosResponse) => {
+    return response
+  },
+  
   (error: AxiosError) => {
     if (error && error.response) {
       switch (error.response.status) {
@@ -84,6 +87,7 @@ axios.interceptors.response.use(
 
 // GET
 export function GET(url: string, params: object | null, errMsg: string | null): Promise < AxiosResponse > {
+
   return new Promise((resolve, reject) => {
     axios
       .get(url, {

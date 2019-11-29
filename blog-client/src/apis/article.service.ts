@@ -8,11 +8,17 @@ import {
 } from 'axios';
 
 import {
+  IResponseCommon
+} from '../types/common'
+
+import {
   IArticleDetail,
+  IArticleWrap,
   IArchive,
   IDetail,
   ILike,
   IIncreasePV,
+  ArticleList
 } from '../types/article';
 
 import {
@@ -21,39 +27,43 @@ import {
 
 
 class ArticleService {
-  public async getPostById(id: string): Promise<AxiosResponse<IDetail>> {
+  public async getArticle(params: ArticleList): Promise<AxiosResponse<IResponseCommon<IArticleWrap>>> {
+    return GET(`/article/list`, params, '')
+  }
+
+  public async getPostById(id: string): Promise<AxiosResponse<IResponseCommon<IDetail>>> {
     return GET(`/articles/${id}`, null, '');
   }
 
-  public async getPostsByPage(page: number): Promise<AxiosResponse<IArticleDetail[]>> {
+  public async getPostsByPage(page: number): Promise<AxiosResponse<IResponseCommon<IArticleWrap>>> {
     return GET(`/articleList/page/${page}`, null, '');
   }
 
-  public async getPostsByTitle(title: string): Promise<AxiosResponse<IArticleDetail[]>> {
+  public async getPostsByTitle(title: string): Promise<AxiosResponse<IResponseCommon<IArticleWrap>>> {
     return GET(`/articlesByTitle?q=${title}`, null, '');
   }
 
-  public async getAllTags(): Promise<AxiosResponse<string[]>> {
-    return GET('/allTags', null, '');
+  public async getAllTags(): Promise<AxiosResponse<IResponseCommon<string[]>>> {
+    return GET('/categoryList', null, '');
   }
 
-  public async getPostsByTag(tag: string): Promise<AxiosResponse<IArticleDetail[]>> {
+  public async getPostsByTag(tag: string): Promise<AxiosResponse<IResponseCommon<IArticleWrap>>> {
     return GET(`/articlesByTag?tag=${tag}`, null, '');
   }
 
-  public async getHots(): Promise<AxiosResponse<IArticleDetail[]>> {
+  public async getHots(): Promise<AxiosResponse<IResponseCommon<IArticleDetail[]>>> {
     return GET('/articlesByPV', null, '');
   }
 
-  public async getArchives(): Promise<AxiosResponse<IArchive[]>> {
+  public async getArchives(): Promise<AxiosResponse<IResponseCommon<IArchive[]>>> {
     return GET('/archives', null, '');
   }
 
-  public async handleLikes(id: string, ip: string): Promise<AxiosResponse<ILike>> {
+  public async handleLikes(id: string, ip: string): Promise<AxiosResponse<IResponseCommon<ILike>>> {
     return PUT(`/likes/${id}?ip=${ip}`, null, '');
   }
 
-  public async getLikes(id: string, ip: string): Promise<AxiosResponse<ILike>> {
+  public async getLikes(id: string, ip: string): Promise<AxiosResponse<IResponseCommon<ILike>>> {
     return GET(`/likes/${id}?ip=${ip}`, null, '');
   }
 
@@ -61,7 +71,7 @@ class ArticleService {
     return GET(ipify, null, '');
   }
 
-  public async increasePV(id: string): Promise<AxiosResponse<IIncreasePV>> {
+  public async increasePV(id: string): Promise<AxiosResponse<IResponseCommon<IIncreasePV>>> {
     return PUT(`/articlePV/${id}`, null, '');
   }
 

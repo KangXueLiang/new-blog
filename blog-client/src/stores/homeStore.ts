@@ -29,7 +29,7 @@ class HomeStore {
     try {
       const res = await homeService.getAnnouncement();
       runInAction(() => {
-        this.announcement = res.data.content;
+        this.announcement = res.data.data.content || '欢迎来到巡礼者的博客~' ;
       });
     } catch (e) {
       setToast('获取 Announcement 失败');
@@ -40,7 +40,7 @@ class HomeStore {
     try {
       const res = await homeService.getMotto();
       runInAction(() => {
-        this.motto = res.data.content;
+        this.motto = res.data.data.content
       });
     } catch (e) {
       setToast('获取 Motto 失败');
@@ -51,7 +51,7 @@ class HomeStore {
     try {
       const res = await homeService.getProject();
       runInAction(() => {
-        this.projects = res.data;
+        this.projects = res.data || [];
       });
     } catch (e) {
       setToast('获取 Projects 失败');
@@ -78,15 +78,30 @@ class HomeStore {
       curId = 0;
     }
     try {
-      const res = await homeService.getCover(curId, position);
+      // 这里做一下mock先
+      // const res = await homeService.getCover(curId, position);
+      // runInAction(() => {
+      //   this.coverUrl = res.data.url;
+      //   window.localStorage.setItem('cover_id', res.data._id);
+      // });
       runInAction(() => {
-        this.coverUrl = res.data.url;
-        window.localStorage.setItem('cover_id', res.data._id);
-      });
+        let imgLists = [
+          'https://logan-blog.oss-cn-shenzhen.aliyuncs.com/blog-detail/wallls.com_111757.jpg',
+          'https://logan-blog.oss-cn-shenzhen.aliyuncs.com/blog-detail/cat1.jpg',
+          'https://logan-blog.oss-cn-shenzhen.aliyuncs.com/blog-detail/cat2.jpg',
+          'https://logan-blog.oss-cn-shenzhen.aliyuncs.com/blog-detail/girl1.jpg',
+          'https://logan-blog.oss-cn-shenzhen.aliyuncs.com/blog-detail/IMG_7792.webp'
+        ]
+        let random = Math.floor(Math.random() * 5)
+        this.coverUrl = imgLists[random]
+        window.localStorage.setItem('cover_id', '5c0cb8787828556a98cf8824');
+      })
       if (this.coverUrl) {
         this.loadBgImg(this.coverUrl);
       }
     } catch (e) {
+      console.log('开始获取首页数据', e)
+
       setToast('获取 Cover 失败');
     }
   };

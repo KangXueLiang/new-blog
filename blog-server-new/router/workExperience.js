@@ -1,4 +1,5 @@
 import express from 'express';
+import {responseClient} from '../tools/constant'
 import { WorkExperience } from '../models/index';
 
 const router = express.Router();
@@ -10,27 +11,18 @@ router.get('/workExperience', async (req, res, next) => {
             time: new Date().getTime(),
         });
         const result = await WorkExperience.find({}).sort({_id: -1});
-        return res.status(200).json(result);
+        responseClient(res, 200, 0, '成功', result)
     } catch (e) {
         return next(e)
     }
 });
 
 
-router.post('/workExperience', (req, res, next) => {
+router.post('/workExperience', async (req, res, next) => {
     try {
-        WorkExperience.create(req.body, (err, WorkExperience) => {
-            err ? res.json(err) : res.status(200).json(WorkExperience);
-        })
-    } catch (e) {
-        return res.status(500).send('Unknown Server Error');
-    }
-});
-
-router.put('/workExperience/:id', async (req, res) => {
-    try {
-        const result = await WorkExperience.findOneAndUpdate({
-                _id: req.params.id
+        if (req.body._id) {
+            await WorkExperience.findOneAndUpdate({
+                _id: req.body._id
             },
             {
                 $set: {
@@ -43,9 +35,13 @@ router.put('/workExperience/:id', async (req, res) => {
             }, {
                 new: true,
             });
-        res.status(201).send(result);
+        } else {
+            await WorkExperience.create(req.body)
+        }
+        const result  = await WorkExperience.find({}).sort({_id: -1})
+        responseClient(res, 200, 0, '成功', result)
     } catch (e) {
-        res.json(e.message);
+        responseClient(res, 200, -1, '失败', err.message);
     }
 });
 
@@ -54,9 +50,9 @@ router.delete('/workExperience/:id', async (req, res) => {
         const result = await WorkExperience.findOneAndRemove({
             _id: req.params.id
         });
-        return res.status(204).json(result);
+        responseClient(res, 200, -1, '成功', result);
     } catch (e) {
-        return res.status(404).send('404 Not Found');
+        responseClient(res, 200, -1, '失败', e.message);
     }
 });
 

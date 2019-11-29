@@ -4,12 +4,16 @@ import { AxiosResponse } from 'axios';
 
 import { IAnnouncement, IMotto, IProject, ICover } from '../types/home';
 
+import {
+  IResponseCommon
+} from '../types/common'
+
 class HomeService {
-  public async getAnnouncement(): Promise<AxiosResponse<IAnnouncement>> {
+  public async getAnnouncement(): Promise<AxiosResponse<IResponseCommon<IAnnouncement>>> {
     return GET('/latestAnnouncements', null, '');
   }
 
-  public async getMotto(): Promise<AxiosResponse<IMotto>> {
+  public async getMotto(): Promise<AxiosResponse<IResponseCommon<IMotto>>> {
     return GET('/latestMotto', null, '');
   }
 

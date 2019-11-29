@@ -16,6 +16,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const router = _express2.default.Router();
 
+// BE
 // get all category
 router.get('/category/list', async (req, res, next) => {
   try {
@@ -64,6 +65,18 @@ router.post('/category/delete', (req, res, next) => {
   } catch (e) {
     (0, _constant.responseClient)(res, 200, -1, '', e.message);
     return next(e);
+  }
+});
+
+// FE
+router.get('/categoryList', async (req, res, next) => {
+  try {
+    const result = await _index.Category.find({});
+    (0, _constant.responseClient)(res, 200, 0, '成功', result.map(item => {
+      return item.name;
+    }));
+  } catch (e) {
+    (0, _constant.responseClient)(res, 200, -1, '失败', []);
   }
 });
 

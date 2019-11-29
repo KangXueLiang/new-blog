@@ -40,7 +40,7 @@ class ArticleStore {
       header_cover: '',
       title: '',
       summary: '',
-      content: '',
+      contentHtml: '',
       publish_date: '',
       last_modified_date: '',
       tags: [],
@@ -90,9 +90,11 @@ class ArticleStore {
   public getPostsByPage = async () => {
     try {
       const res = await articleService.getPostsByPage(this.curPage);
+      console.log('看一下文章', res)
+
       runInAction(() => {
-        this.posts = res.data;
-        this.total = parseInt(res.headers.amount, 10);
+        this.posts = res.data.data.posts || [];
+        this.total = res.data.data.Amount
         this.curPage = 1;
       });
     } catch (e) {
@@ -104,7 +106,7 @@ class ArticleStore {
     try {
       const res = await articleService.getPostsByTitle(title);
       runInAction(() => {
-        this.posts = res.data;
+        this.posts = res.data.data.posts || [];
       });
     } catch (e) {
       setToast('检索失败');
@@ -114,8 +116,9 @@ class ArticleStore {
   public getAllTags = async () => {
     try {
       const res = await articleService.getAllTags();
+      console.log('看一下tags', res.data.data)
       runInAction(() => {
-        this.tags = res.data;
+        this.tags = res.data.data;
       });
     } catch (e) {
       setToast('获取标签失败');
@@ -125,8 +128,9 @@ class ArticleStore {
   public getPostsByTag = async (tag = this.curPath) => {
     try {
       const res = await articleService.getPostsByTag(tag);
+      console.log('看一下标签的文章', res.data.data.posts)
       runInAction(() => {
-        this.posts = res.data;
+        this.posts = res.data.data.posts || [];
       });
     } catch (e) {
       setToast('无法获取此标签下的文章');
@@ -137,7 +141,7 @@ class ArticleStore {
     try {
       const res = await articleService.getHots();
       runInAction(() => {
-        this.hots = res.data;
+        this.hots = res.data.data || [];
       });
     } catch (e) {
       setToast('获取 PV 失败');
@@ -148,7 +152,7 @@ class ArticleStore {
     try {
       const res = await articleService.getArchives();
       runInAction(() => {
-        this.archives = res.data.sort(sortBy('_id', 'year'));
+        this.archives = res.data.data.sort(sortBy('_id', 'year'));
         this.archives.forEach((value: any) => value.data.forEach((val: any) => this.totalArticlesCount += val.data.length))
       });
     } catch (e) {
@@ -162,7 +166,8 @@ class ArticleStore {
     try {
       const res = await articleService.getPostById(id);
       runInAction(() => {
-        this.detail = res.data;
+        this.detail = res.data.data;
+        this.likeNum = res.data.data.curArticle.like_count.length
       });
     } catch (e) {
       setToast('获取文章失败');
@@ -176,7 +181,7 @@ class ArticleStore {
     try {
       const res = await articleService.handleLikes(this.curPath, this.curIp);
       runInAction(() => {
-        this.likeNum = res.data.like_number;
+        this.likeNum = res.data.data.like_number;
       });
     } catch (e) {
       setToast('点赞失败');
@@ -187,7 +192,8 @@ class ArticleStore {
     try {
       const res = await articleService.getLikes(id, ip);
       runInAction(() => {
-        this.isLiked = res.data.liked;
+        console.log('res.data.data.liked', res.data.data)
+        this.isLiked = res.data.data.liked;
       });
     } catch (e) {
       setToast('获取点赞信息失败');

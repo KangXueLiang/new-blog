@@ -3,8 +3,8 @@ import { observer, inject } from 'mobx-react';
 import cs from 'classnames';
 import Title from '@components/Common/Title/Title';
 import styles from './CV.module.scss';
-import svgIcons from '@assets/images/yancey-official-blog-svg-icons.svg';
-import { socialMedia, svgSprite, webpSuffix } from '@constants/constants';
+import svgIcons from '@assets/images/kk-official-blog-svg-icons.svg';
+import { socialMedia, svgSprite } from '@constants/constants';
 import { ICVProps, IWorkExperience, IProgramExperience } from '../../types/cv';
 
 import Card from '@components/CV/Card';
@@ -28,7 +28,7 @@ class CV extends React.Component<ICVProps, {}> {
     const {
       cvStore: { user, workExperience, programExperience },
     } = this.props;
-    const isWebp = window.localStorage.isWebp === 'true';
+    // const isWebp = window.localStorage.isWebp === 'true';
     return (
       <main className={styles.cv_wrapper}>
         <Title title='CV' />
@@ -36,8 +36,8 @@ class CV extends React.Component<ICVProps, {}> {
           <figure
             className={styles.avatar}
             style={{
-              backgroundImage: `url(${
-                isWebp ? `${user.avatar}${webpSuffix}` : user.avatar
+              backgroundImage: `url(${user.avatar
+                // isWebp ? `${user.avatar}${webpSuffix}` : user.avatar
               })`,
             }}
           />
@@ -53,12 +53,12 @@ class CV extends React.Component<ICVProps, {}> {
             </p>
             <p className={styles.identity}>
               <span>Age: </span>
-              {new Date().getFullYear() - 1996}
+              {new Date().getFullYear() - 1990}
             </p>
             <p className={styles.identity}>
               <span>Work Experience: </span>
-              {new Date().getFullYear() - 2017}{' '}
-              {new Date().getFullYear() - 2017 > 1 ? 'years' : 'year'}
+              {new Date().getFullYear() - 2013}{' '}
+              {new Date().getFullYear() - 2013 > 1 ? 'years' : 'year'}
             </p>
             <p className={styles.identity}>
               <span>Position: </span>
@@ -71,7 +71,7 @@ class CV extends React.Component<ICVProps, {}> {
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                YanceyOfficial
+                KangXueliang
               </a>
             </p>
             <p className={cs(styles.identity, styles.media)}>

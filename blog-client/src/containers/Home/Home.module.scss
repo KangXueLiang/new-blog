@@ -1,4 +1,4 @@
-.yancey_blog_home {
+.kk_blog_home {
   position: relative;
   color: #666;
 
@@ -13,7 +13,6 @@
     background-attachment: fixed;
     opacity: 0;
     transition: 1s opacity linear;
-
     &::after {
       content: '';
       background: url('../../assets/images/dot.gif') 0 0 fixed;

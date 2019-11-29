@@ -7,7 +7,7 @@ const router = express.Router()
 // 获取个人信息
 router.get('/userInfo',  (req, res, next) => {
   try {
-    UserInfo.find({}, (err, result) => {
+    UserInfo.findOne({}, (err, result) => {
       if (err) {
         responseClient(res, 200, -1, '失败', [])
       } else {
@@ -38,7 +38,7 @@ router.post('/userInfo', (req, res, next) => {
           })
         } else {
           UserInfo.findOneAndUpdate({
-            _id: result._id
+            _id: req.body._id
           },
           {
             $set: {
@@ -54,7 +54,7 @@ router.post('/userInfo', (req, res, next) => {
             if(err){
               responseClient(res, 200, -1, '修改个人信息失败')
             }else {
-              responseClient(res, 200, 0, '修改个人信息成功', UserInfo)
+              responseClient(res, 200, 0, '修改个人信息成功', result)
             }
           });     
         }

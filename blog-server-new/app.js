@@ -85,8 +85,8 @@ app.use('/api', globalStatus);
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 
-app.listen(3001, () => {
-  console.log('listening on port 3001')
+app.listen(3010, () => {
+  console.log('listening on port 3010')
 });
 
 module.exports = app;

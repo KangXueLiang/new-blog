@@ -194,7 +194,7 @@ class BlogDetail extends React.Component<
               <section
                 className='article_content'
                 dangerouslySetInnerHTML={{
-                  __html: articleStore!.detail.curArticle.content,
+                  __html: articleStore!.detail.curArticle.contentHtml,
                 }}
               />
               {/* menu */}

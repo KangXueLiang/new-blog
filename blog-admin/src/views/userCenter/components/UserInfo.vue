@@ -31,7 +31,7 @@
           :width="300"
           :height="300"
           :headers="headers"
-          url="http://localhost:3001/api/upload"
+          url="http://localhost:3010/api/upload"
           img-format="jpg"
         >
         </my-upload>
@@ -74,7 +74,7 @@ export default {
       this.show = !this.show
     },
     cropSuccess(imgDataUrl, field) {
-      console.log('-------- crop success --------')
+      console.log('-------- crop success --------', field)
       this.form.avatar = imgDataUrl
     },
     cropUploadSuccess(jsonData, field) {
@@ -90,9 +90,7 @@ export default {
     // 获取个人资料
     getUserInfo() {
       this.$http.get('api/userInfo').then(res => {
-        if (res.data.length) {
-          this.form = res.data[0]
-        }    
+        this.form = res.data
       }).catch(e => {
         console.log('err', e)
       })
