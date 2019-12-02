@@ -7,11 +7,15 @@ import {
 } from 'axios';
 
 import {
+  IResponseCommon
+} from '../types/common'
+
+import {
   IAbout,
 } from '../types/about';
 
 class AboutService {
-  public async getAbouts(): Promise < AxiosResponse < IAbout[] >> {
+  public async getAbouts(): Promise < AxiosResponse < IResponseCommon<IAbout[]> >> {
     return GET('/abouts', null, '');
   }
 }

@@ -28,7 +28,7 @@ router.get('/articles/list', async (req, res, next) => {
     if (req.query.status !== '0') {
       req.query.status === '1' ? searchOption.status = true : searchOption.status = false;
     }
-    const result = await _index.Article.find(searchOption).skip((page - 1) * 10).limit(10).sort({ '_id': -1 });
+    const result = await _index.Article.find(searchOption).skip((page - 1) * 10).limit(10).sort({ 'publish_date': -1 });
     const count = await _index.Article.countDocuments();
     let _data = {
       Amount: count,
@@ -279,7 +279,7 @@ router.get('/articles/:id', async (req, res, next) => {
 // // FE
 router.get('/articleList/page/:page', async (req, res, next) => {
   try {
-    const result = await _index.Article.find({ status: { $ne: false } }).skip((req.params.page - 1) * 10).limit(10).sort({ '_id': -1 });
+    const result = await _index.Article.find({ status: { $ne: false } }).skip((req.params.page - 1) * 10).limit(10).sort({ 'publish_date': -1 });
     const count = await _index.Article.countDocuments();
     if (result.length === 0) {
       (0, _constant.responseClient)(res, 200, -1, '', 'no articles!');

@@ -41,7 +41,7 @@ export default {
     fileType: {
       type: Array,
       default: function () {
-        return ['image/jpge', 'image/png', 'jpg', 'png']
+        return ['image/jpge', 'image/png', 'jpg', 'png', 'webp']
       }
     }
   },

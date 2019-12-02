@@ -82,18 +82,18 @@ class Header extends React.Component<IArticleProps, IHeaderState> {
     return (
       <header
         className={cs(
-          styles.yancey_common_header,
+          styles.kk_common_header,
           'no-user-select',
           isTop ? styles.clear_navbar_bg : '',
         )}
       >
-        <Link to={routePath.home} className={styles.yancey_logo}>
-          Yancey Official Blog
+        <Link to={routePath.home} className={styles.kk_logo}>
+          巡礼者 Official Blog
         </Link>
         <nav>
           <ul>
             {Object.keys(headerList).map(key => (
-              <li className={styles.yancey_nav_item} key={key}>
+              <li className={styles.kk_nav_item} key={key}>
                 <Link to={headerList[key].url}>
                   <svg
                     className={cs(styles.header_icon, styles[`icon_${key}`])}
@@ -105,7 +105,7 @@ class Header extends React.Component<IArticleProps, IHeaderState> {
               </li>
             ))}
             <li
-              className={styles.yancey_nav_item}
+              className={styles.kk_nav_item}
               onClick={() => articleStore!.toggleShowSearch()}
             >
               <svg className={cs(styles.header_icon, styles.icon_search)}>

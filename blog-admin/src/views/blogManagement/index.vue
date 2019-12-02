@@ -30,7 +30,7 @@
           <el-table-column
             label="标题">
             <template slot-scope="scope">
-              <span @click="goDetail(scope.row.id)" class="staff-jump-tip">{{scope.row.title}}</span>
+              <span @click="goDetail(scope.row)" class="staff-jump-tip">{{scope.row.title}}</span>
             </template>
           </el-table-column>
           <el-table-column

@@ -11,7 +11,7 @@ import {
   IMusicProps,
   ILiveTours,
   IFeaturedRecords,
-  IYanceyMusic,
+  IKKMusic,
 } from '../../types/music';
 import { IArticleDetail } from '../../types/article';
 
@@ -33,13 +33,13 @@ class Music extends React.Component<IMusicProps, {}> {
     const { musicStore, articleStore } = this.props;
     musicStore!.getLiveTours();
     musicStore!.getFeaturedRecords();
-    musicStore!.getYanceyMusic();
+    musicStore!.getKKMusic();
     articleStore!.getPostsByTag('Music');
   }
 
   public render() {
     const {
-      musicStore: { liveTours, featuredRecords, yanceyMusic },
+      musicStore: { liveTours, featuredRecords, kkMusic },
       articleStore: { posts },
     } = this.props;
 
@@ -154,12 +154,12 @@ class Music extends React.Component<IMusicProps, {}> {
             </ul>
           </section>
         </div>
-        <section className={styles.yancey_music_container}>
-          <h2 className={styles.column_title}>YANCEY MUSIC</h2>
-          <div className={cs(styles.artists_list, styles.yancey_music_list)}>
-            {yanceyMusic.map((item: IYanceyMusic) => (
+        <section className={styles.kk_music_container}>
+          <h2 className={styles.column_title}>KK MUSIC</h2>
+          <div className={cs(styles.artists_list, styles.kk_music_list)}>
+            {kkMusic.map((item: IKKMusic) => (
               <Card
-                type='yanceyMusic'
+                type='kkMusic'
                 key={item._id}
                 url={item.soundCloud_url}
                 title={item.title}

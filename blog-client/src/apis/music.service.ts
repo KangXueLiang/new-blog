@@ -9,7 +9,7 @@ import {
 import {
   ILiveTours, 
   IFeaturedRecords,
-  IYanceyMusic,
+  IKKMusic,
 } from '../types/music';
 
 class MusicService {
@@ -21,8 +21,8 @@ class MusicService {
     return GET(`/latestFourFeaturedRecords`, null, '');
   }
 
-  public async getYanceyMusic(): Promise<AxiosResponse<IYanceyMusic[]>> {
-    return GET(`/yanceyMusic`, null, '');
+  public async getKKMusic(): Promise<AxiosResponse<IKKMusic[]>> {
+    return GET(`/kkMusic`, null, '');
   }
 }
 

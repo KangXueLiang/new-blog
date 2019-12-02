@@ -41,7 +41,7 @@ router.post('/workExperience', async (req, res, next) => {
         const result  = await WorkExperience.find({}).sort({_id: -1})
         responseClient(res, 200, 0, '成功', result)
     } catch (e) {
-        responseClient(res, 200, -1, '失败', err.message);
+        responseClient(res, 200, -1, '失败', e.message);
     }
 });
 

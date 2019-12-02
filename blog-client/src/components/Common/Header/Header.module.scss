@@ -1,7 +1,7 @@
 $orange: #ffA500;
 $gray: #666;
 
-.yancey_common_header {
+.kk_common_header {
   position: fixed;
   display: flex;
   justify-content: space-between;
@@ -16,7 +16,7 @@ $gray: #666;
   &:visited{
     outline: none;
   }
-  .yancey_logo {
+  .kk_logo {
     width: 11rem;
     height: 2.2rem;
     margin-left: 1.5rem;
@@ -36,7 +36,7 @@ $gray: #666;
   }
 }
 
-.yancey_nav_item {
+.kk_nav_item {
   position: relative;
   display: inline-block;
   margin-right: 1.4rem;

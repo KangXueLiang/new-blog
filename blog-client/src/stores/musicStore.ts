@@ -14,13 +14,13 @@ import {
 import {
   ILiveTours,
   IFeaturedRecords,
-  IYanceyMusic,
+  IKKMusic,
 } from '../types/music';
 
 class MusicStore {
   @observable public liveTours: ILiveTours[] = [];
   @observable public featuredRecords: IFeaturedRecords[] = [];
-  @observable public yanceyMusic: IYanceyMusic[] = [];
+  @observable public kkMusic: IKKMusic[] = [];
 
   public getLiveTours = async () => {
     try {
@@ -44,11 +44,11 @@ class MusicStore {
     }
   }
 
-  public getYanceyMusic = async () => {
+  public getKKMusic = async () => {
     try {
-      const res = await musicService.getYanceyMusic();
+      const res = await musicService.getKKMusic();
       runInAction(() => {
-        this.yanceyMusic = res.data;
+        this.kkMusic = res.data;
       });
     } catch (error) {
       setToast('获取我的作品失败');

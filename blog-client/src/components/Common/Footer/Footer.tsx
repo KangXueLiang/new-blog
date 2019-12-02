@@ -13,11 +13,7 @@ const copyright = {
   privacyPolicy: {
     url: routePath.legal,
     name: 'Privacy Policy',
-  },
-  apps: {
-    url: routePath.apps,
-    name: 'Apps',
-  },
+  }
 };
 
 class Footer extends React.Component<{}, {}> {
@@ -28,7 +24,7 @@ class Footer extends React.Component<{}, {}> {
 
   public render() {
     return (
-      <footer className={styles.yancey_common_footer}>
+      <footer className={styles.kk_common_footer}>
         <div className={styles.footer_container}>
           <p className={styles.creator}>
             Brought to you with

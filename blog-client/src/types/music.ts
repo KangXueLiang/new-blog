@@ -3,10 +3,10 @@ import { ArticleStoreType } from './article';
 interface MusicStoreType {
   liveTours: ILiveTours[];
   featuredRecords: IFeaturedRecords[];
-  yanceyMusic: IYanceyMusic[];
+  kkMusic: IKKMusic[];
   getLiveTours: () => void;
   getFeaturedRecords: () => void;
-  getYanceyMusic: () => void;
+  getKKMusic: () => void;
 }
 
 export interface IMusicProps {
@@ -32,7 +32,7 @@ export interface IFeaturedRecords {
   _id: string;
 }
 
-export interface IYanceyMusic {
+export interface IKKMusic {
   title: string;
   soundCloud_url: string;
   cover: string;

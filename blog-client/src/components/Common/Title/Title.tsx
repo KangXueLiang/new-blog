@@ -16,7 +16,7 @@ class Title extends React.Component<ITitleProps, {}> {
 
     return (
       <Helmet>
-        <title>{title} | Yancey Inc.</title>
+        <title>{title} | 巡礼者 Inc.</title>
       </Helmet>
     );
   }

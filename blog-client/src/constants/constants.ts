@@ -17,9 +17,9 @@ export const GA = 'UA-153213304-1';
 
 export const ipify = 'https://api.ipify.org';
 
-export const byNcSa = '';
+export const byNcSa = 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh';
 
-export const livere = '';
+export const livere = 'MTAyMC80Nzc4Mi8yNDI3OQ==';
 
 export const svgSprite = {
   telegram: '#telegram',
@@ -88,26 +88,6 @@ export const socialMedia = {
     url: 'https://github.com/kangxueliang/',
     icon: '#github',
   },
-  // twitter: {
-  //   url: 'https://twitter.com/YanceyOfficial/',
-  //   icon: '#twitter',
-  // },
-  // instagram: {
-  //   url: 'https://www.instagram.com/yancey_leo/',
-  //   icon: '#instagram',
-  // },
-  // soundCloud: {
-  //   url: 'https://soundcloud.com/yancey-leo/',
-  //   icon: '#soundcloud',
-  // },
-  // telegram: {
-  //   url: 'https://t.me/YanceyOfficial',
-  //   icon: '#telegram',
-  // },
-  // paypal: {
-  //   url: 'https://www.paypal.me/yanceyleo/10usd',
-  //   icon: '#paypal',
-  // },
   wechat: {
     url: '/',
     icon: '#wechat',

@@ -18,7 +18,12 @@ axios.defaults.timeout = 30 * 1000;
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 // config base url
-axios.defaults.baseURL = baseURL.prod;
+if (process.env.NODE_ENV === 'production') {
+  axios.defaults.baseURL = baseURL.prod;
+} else {
+  axios.defaults.baseURL = baseURL.dev;
+}
+
 
 const pending: any[] = [];
 const removePending = (config: any) => {

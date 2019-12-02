@@ -18,7 +18,7 @@ class Apps extends React.Component<{}, {}> {
         <Title title='Apps' />
         <section className={cs(styles.platform, styles.mobile_wrapper)}>
           <h3 className={styles.platform_title}>
-            DOWNLOAD YANCEY BLOG APP FOR
+            DOWNLOAD KK BLOG APP FOR
           </h3>
           <h1 className={styles.platform_type}>Phones</h1>
           <div className={styles.phone_list}>
@@ -41,7 +41,7 @@ class Apps extends React.Component<{}, {}> {
         </section>
         <section className={cs(styles.platform, styles.desktop_wrapper)}>
           <h3 className={styles.platform_title}>
-            DOWNLOAD YANCEY BLOG APP FOR
+            DOWNLOAD KK BLOG APP FOR
           </h3>
           <h1 className={styles.platform_type}>Mac or Windows PC</h1>
           <figure className={styles.desktop_mac} />

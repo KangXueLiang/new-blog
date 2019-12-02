@@ -212,7 +212,7 @@ class BlogDetail extends React.Component<
                   <TwitterShareButton
                     title={articleStore!.detail.curArticle.title}
                     url={window.location.href}
-                    via='YanceyOfficial'
+                    via='KK Official'
                     className='Demo__some-network__share-button'
                   >
                     <TwitterIcon size={32} round />

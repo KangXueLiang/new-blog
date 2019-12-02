@@ -20,7 +20,7 @@ class AboutStore {
     try {
       const res = await aboutService.getAbouts();
       runInAction(() => {
-        this.abouts = res.data;
+        this.abouts = res.data.data;
       });
     } catch (e) {
       setToast('获取关于失败');

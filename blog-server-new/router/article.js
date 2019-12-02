@@ -18,7 +18,7 @@ router.get('/articles/list', async (req, res, next) => {
     const result = await Article.find(searchOption)
       .skip((page - 1) * 10)
       .limit(10)
-      .sort({'_id': -1})
+      .sort({'publish_date': -1})
     const count = await Article.countDocuments();
     let _data = {
       Amount: count,
@@ -274,7 +274,7 @@ router.get('/articleList/page/:page', async (req, res, next) => {
     const result = await Article.find({status: {$ne: false}})
       .skip((req.params.page - 1) * 10)
       .limit(10)
-      .sort({'_id': -1});
+      .sort({'publish_date': -1});
     const count = await Article.countDocuments();
     if (result.length === 0) {
       responseClient(res, 200, -1, '', 'no articles!')

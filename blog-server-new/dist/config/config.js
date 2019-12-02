@@ -5,8 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 const config = {
   name: 'Logan Blog',
-  db: 'mongodb://localhost:27017/blog',
-  port: 3001,
+  db: 'mongodb://118.24.101.230:27017/blog',
+  port: 3010,
   version: 'v1'
 };
 

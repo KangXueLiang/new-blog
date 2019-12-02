@@ -603,14 +603,14 @@ class Legal extends React.Component<{}, {}> {
           </p>
           <span className={styles.target_fix} id='Owner_and_Data_Controller' />
           <h2>IX. Owner and Data Controller</h2>
-          <p>Yancey Inc.</p>
+          <p>巡礼者 Inc.</p>
           <p>
             <span>Owner contact email: </span>
             {socialMedia.email.url.split(':')[1]}
           </p>
           <hr />
           <p className={styles.update_date}>
-            Date of last revision: Tuesday, August 28, 2018
+            Date of last revision: Friday, November 29, 2019
           </p>
         </article>
       </main>
