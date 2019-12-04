@@ -63,6 +63,7 @@ class HomeStore {
     const backgroundDOM = document.getElementById('background');
     const background = new Image();
     background.src = isWebp ? `${imageUrl}${webpSuffix}` : imageUrl;
+    background.src = imageUrl
     background.onload = () => {
       if (backgroundDOM) {
         backgroundDOM.style.cssText = `background-image: url(${
@@ -79,22 +80,34 @@ class HomeStore {
     }
     try {
       // 这里做一下mock先
-      // const res = await homeService.getCover(curId, position);
+      const res = await homeService.getCover(curId);
       // runInAction(() => {
       //   this.coverUrl = res.data.url;
       //   window.localStorage.setItem('cover_id', res.data._id);
       // });
+      
       runInAction(() => {
-        let imgLists = [
-          'https://logan-blog.oss-cn-shenzhen.aliyuncs.com/blog-detail/wallls.com_111757.jpg',
-          'https://logan-blog.oss-cn-shenzhen.aliyuncs.com/blog-detail/cat1.jpg',
-          'https://logan-blog.oss-cn-shenzhen.aliyuncs.com/blog-detail/cat2.jpg',
-          'https://logan-blog.oss-cn-shenzhen.aliyuncs.com/blog-detail/girl1.jpg',
-          'https://logan-blog.oss-cn-shenzhen.aliyuncs.com/blog-detail/IMG_7792.webp'
-        ]
-        let random = Math.floor(Math.random() * 5)
-        this.coverUrl = imgLists[random]
-        window.localStorage.setItem('cover_id', '5c0cb8787828556a98cf8824');
+        // let imgLists = [
+        //   'https://logan-blog.oss-cn-shenzhen.aliyuncs.com/blog-detail/wallls.com_111757.jpg',
+        //   'https://logan-blog.oss-cn-shenzhen.aliyuncs.com/blog-detail/cat1.jpg',
+        //   'https://logan-blog.oss-cn-shenzhen.aliyuncs.com/blog-detail/cat2.jpg',
+        //   'https://logan-blog.oss-cn-shenzhen.aliyuncs.com/blog-detail/girl1.jpg',
+        //   'https://logan-blog.oss-cn-shenzhen.aliyuncs.com/blog-detail/IMG_7792.webp'
+        // ]
+        let imgLists = res.data.data.map(itme => itme.url)
+        let currentImg = window.localStorage.getItem('cover_id')
+        let curr
+        if (currentImg && position === 'prev') {
+          curr = imgLists.indexOf(currentImg)
+          this.coverUrl = (curr - 1 < 0 ? imgLists[imgLists.length - 1] : imgLists[curr - 1])
+        } else if (currentImg && position === 'next') {
+          curr = imgLists.indexOf(currentImg)
+          this.coverUrl = (curr + 1 > imgLists.length - 1 ? imgLists[0] : imgLists[curr + 1])
+        } else {
+          let random = Math.floor(Math.random() * 5)
+          this.coverUrl = imgLists[random]
+        }
+        window.localStorage.setItem('cover_id', this.coverUrl);
       })
       if (this.coverUrl) {
         this.loadBgImg(this.coverUrl);

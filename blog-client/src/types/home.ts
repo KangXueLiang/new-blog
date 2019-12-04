@@ -43,7 +43,6 @@ export interface IProject {
 
 export interface ICover {
   name: string;
-  show: boolean;
   upload_date: string;
   url: string;
   __v: number;

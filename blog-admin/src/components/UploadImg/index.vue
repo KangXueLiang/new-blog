@@ -66,7 +66,8 @@ export default {
       this.$emit('uploadBegin', this.type, this.index)
       // （某些浏览器获取到的type有有误，暂用文件名后缀判断类型） let fileType = file.type // 文件类型
       let fileType
-      !fileType && (fileType = file.name.match(/\.([a-zA-Z]+)$/)[1])
+      console.log('name', file.name)
+      !fileType && (fileType = file.name.match(/\.(\w+)$/)[1])
       console.log(fileType)
       const pass = this.fileType.some(e => { return e === fileType })
       const size = file.size <= (1024 * 1024) * this.size
@@ -120,6 +121,7 @@ export default {
   .upload-outer{
     position: relative;
     display: inline-block;
+    width: 100%;
     .file-input {
       position: absolute;
       width: 100%;

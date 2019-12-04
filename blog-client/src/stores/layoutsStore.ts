@@ -31,7 +31,7 @@ class LayoutsStore {
     try {
       const res = await layoutsService.getPlayers();
       runInAction(() => {
-        res.data.map(item => {
+        res.data.data.map(item => {
           this.players.push({
             name: item.title,
             artist: item.artist,

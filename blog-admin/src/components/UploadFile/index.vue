@@ -183,6 +183,7 @@
       color: #B9BEC3;
     }
     .upload-outer{
+      width: 100%;
       position: relative;
       display: inline-block;
       .file-input {

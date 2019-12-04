@@ -20,10 +20,6 @@ const coverSchema = new Schema({
   upload_date: {
     type: Date,
     default: Date.now
-  },
-  show: {
-    type: Boolean,
-    required: true
   }
 }, {
   collection: 'cover'

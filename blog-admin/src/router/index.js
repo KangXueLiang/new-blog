@@ -112,6 +112,20 @@ export const constantRouterMap = [
     }]
   },
   {
+    path: '/music',
+    component: Layout,
+    redirect: '/music/index',
+    name: '音乐',
+    alwaysShow: true,
+    meta: { title: '音乐管理', icon: 'iconfont iconicon_8' },
+    children: [{
+      path: 'index',
+      name: '音乐管理',
+      meta: { title: '音乐列表', icon: 'iconfont iconicon_21' },
+      component: loadComponent('views/musicManagement/index')
+    }]
+  },
+  {
     path: '/commentManagement',
     component: Layout,
     redirect: '/commentManagement/index',
@@ -152,6 +166,11 @@ export const constantRouterMap = [
       name: '资料管理',
       meta: { title: '资料管理', icon: 'iconfont iconicon_21' },
       component: loadComponent('views/userCenter/index')
+    }, {
+      path: 'cover',
+      name: 'Cover',
+      meta: { title: 'Cover', icon: 'iconfont iconicon_21' },
+      component: loadComponent('views/userCenter/cover')
     }, {
       path: 'motto',
       name: 'Motto',

@@ -11,12 +11,16 @@ import {
   IGlobalStatus,
 } from '../types/layout';
 
+import {
+  IResponseCommon
+} from '../types/common'
+
 class LayoutsService {
   public async getGlobalStatus(): Promise<AxiosResponse<IGlobalStatus>> {
     return GET(`/globalStatus`, null, '');
   }
 
-  public async getPlayers(): Promise<AxiosResponse<IPlayer[]>> {
+  public async getPlayers(): Promise<AxiosResponse<IResponseCommon<IPlayer[]>>> {
     return GET(`/litePlayers`, null, '');
   }
 }

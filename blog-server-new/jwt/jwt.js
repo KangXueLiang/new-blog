@@ -20,7 +20,7 @@ const JWTAuth = expressJWT({
       {url: /^\/api\/articlePV\/.*/, methods: ['PUT']},
       {url: /^\/api\/likes\/.*/, methods: ['GET']},
       {url: /^\/api\/likes\/.*/, methods: ['PUT']},
-      {url: /^\/api\/covers\/.*/, methods: ['GET']},
+      {url: '/api/covers', methods: ['GET']},
       {url: '/api/latestFourFeaturedRecords', methods: ['GET']},
       {url: '/api/liveTours', methods: ['GET']},
       {url: '/api/latestMotto', methods: ['GET']},

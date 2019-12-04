@@ -19,7 +19,7 @@ const playerSchema = new Schema({
     },
     cover: {
         type: String,
-        required: true
+        required: false
     },
     music_file_url: {
         type: String,
@@ -33,9 +33,9 @@ const playerSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    show: {
-        type: Boolean,
-        required: true
+    order: {
+        type: Number,
+        default: 0
     }
 }, {
     collection: 'player'

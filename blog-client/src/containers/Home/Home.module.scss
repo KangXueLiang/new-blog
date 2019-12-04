@@ -15,7 +15,7 @@
     transition: 1s opacity linear;
     &::after {
       content: '';
-      background: url('../../assets/images/dot.gif') 0 0 fixed;
+      // background: url('../../assets/images/dot.gif') 0 0 fixed;
       position: absolute;
       top: 0;
       right: 0;

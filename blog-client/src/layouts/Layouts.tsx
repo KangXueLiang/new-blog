@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import styles from './Layouts.module.scss';
 import history from '../history';
 import routePath from '@constants/routePath';
-// import Player from '@components/Widget/Player/Player'; // 播放器
+import Player from '@components/Widget/Player/Player';
 import ScrollToTop from '@components/Widget/ScrollToTop/ScrollToTop';
 import Header from '@components/Common/Header/Header';
 import Footer from '@components/Common/Footer/Footer';
@@ -23,16 +23,59 @@ const loading = props => {
   }
 };
 
-function componentsWrap(component) {
-  return Loadable({
-    loader: () => import(`../containers/${component}/${component}`),
-    loading,
-    delay: 50
-  })
-}
+const Home = Loadable({
+  loader: () => import('../containers/Home/Home'),
+  loading,
+  delay: 50,
+});
 
-const Blog = componentsWrap('Blog')
-const BlogDetail = componentsWrap('BlogDetail')
+const Blog = Loadable({
+  loader: () => import('../containers/Blog/Blog'),
+  loading,
+  delay: 50,
+});
+
+const BlogDetail = Loadable({
+  loader: () => import('../containers/BlogDetail/BlogDetail'),
+  loading,
+  delay: 50,
+});
+
+const Archive = Loadable({
+  loader: () => import('../containers/Archive/Archive'),
+  loading,
+  delay: 50,
+});
+
+const Legal = Loadable({
+  loader: () => import('../containers/Legal/Legal'),
+  loading,
+  delay: 50,
+});
+
+const Apps = Loadable({
+  loader: () => import('../containers/Apps/Apps'),
+  loading,
+  delay: 50,
+});
+
+const CV = Loadable({
+  loader: () => import('../containers/CV/CV'),
+  loading,
+  delay: 50,
+});
+
+const Music = Loadable({
+  loader: () => import('../containers/Music/Music'),
+  loading,
+  delay: 50,
+});
+
+const About = Loadable({
+  loader: () => import('../containers/About/About'),
+  loading,
+  delay: 50,
+});
 
 // 后期跳转监听
 history.listen((location, action) => {
@@ -54,7 +97,7 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
 
   public componentDidMount() {
     const { layoutsStore } = this.props;
-    // layoutsStore!.getPlayers();
+    layoutsStore!.getPlayers();
     layoutsStore!.getGlobalStatus();
   }
 
@@ -77,8 +120,8 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
         <Header />
         <div className={styles.main_contents}>
           <Switch>
-            <Route path={routePath.home} exact component={componentsWrap('Home')} />
-            <Route path={routePath.legal} component={componentsWrap('Legal')} />
+            <Route path={routePath.home} exact component={Home} />
+            <Route path={routePath.legal} component={Legal} />
             <Route
               path={routePath.blog}
               render={props => <Blog {...props} key={location.pathname} />}
@@ -87,24 +130,24 @@ class Layouts extends React.Component<ILayoutsProps, {}> {
               path={`${routePath.tag}:id`}
               render={props => <Blog {...props} key={location.pathname} />}
             />
-            <Route path={routePath.search} component={componentsWrap('Blog')} />
+            <Route path={routePath.search} component={Blog} />
             <Route
               path={`${routePath.blogDetail}:id`}
               render={props => (
                 <BlogDetail {...props} key={location.pathname} />
               )}
             />
-            <Route path={routePath.archive} component={componentsWrap('Archive')} />
-            <Route path={routePath.apps} component={componentsWrap('Apps')} />
-            <Route path={routePath.cv} component={componentsWrap('CV')} />
-            <Route path={routePath.music} component={componentsWrap('Music')} />
-            <Route path={routePath.about} component={componentsWrap('About')} />
+            <Route path={routePath.archive} component={Archive} />
+            <Route path={routePath.apps} component={Apps} />
+            <Route path={routePath.cv} component={CV} />
+            <Route path={routePath.music} component={Music} />
+            <Route path={routePath.about} component={About} />
             <Route path={routePath.notFound} component={NotFound} />
             <Route component={NotFound} />
           </Switch>
         </div>
         <ScrollToTop />
-        {/* <Player /> */}
+        <Player />
         <Footer />
         <ToastContainer />
       </div>

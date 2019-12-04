@@ -22,10 +22,9 @@ class HomeService {
   }
 
   public async getCover(
-    curId: string,
-    position: string,
-  ): Promise<AxiosResponse<ICover>> {
-    return GET(`/covers/${curId}?position=${position}`, null, '');
+    curId: string
+  ): Promise<AxiosResponse<IResponseCommon<ICover[]>>> {
+    return GET(`/covers`, null, '');
   }
 }
 

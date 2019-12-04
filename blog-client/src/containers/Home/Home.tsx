@@ -20,6 +20,7 @@ class Home extends React.Component<IHomeProps, {}> {
   }
 
   public componentDidMount() {
+    console.log('这里是componentDidMount')
     const { homeStore, articleStore } = this.props;
     homeStore!.getCover();
     homeStore!.getMotto();
