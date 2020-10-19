@@ -1,1 +1,1 @@
-# Yancey official blog background. Powered by node.js
+# kk official blog background. Powered by node.js
